@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     resources :book_comments,only: [:create, :destroy]
   end
   get "/home/about" => "homes#about"
+
+  get '/search', to: 'searchs#search'
 end
