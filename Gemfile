@@ -74,3 +74,4 @@ gem 'carrierwave'
 
 gem 'rinku'
 
+gem 'jquery-rails'
