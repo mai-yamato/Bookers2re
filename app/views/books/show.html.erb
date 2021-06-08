@@ -29,13 +29,9 @@
           <% end %>
         </tr>
       </table>
-
-      <% @book.book_comments.each do |comment| %>
-      <table id="book_comments_<%= @book.id %>">
-          <%= render 'book_comments/book_comments', book: @book, comment: comment %>
-      </table>
-      <% end %>
-
+　　　<div id="book_comments_<%= @book.id %>">
+      <%= render 'book_comments/book_comments', book: @book, comment: @comment %>
+　　　</div>
       <div class="new-comment">
         <%= form_with(model:[@book, @book_comment], remote: true) do |f| %>
         <%= f.text_area :comment, cols:'80', rows:'5' %>

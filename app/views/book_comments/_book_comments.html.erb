@@ -1,12 +1,20 @@
-<td>
-  <%= attachment_image_tag(comment.user.profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
-  <%= comment.user.name %>
-</td>
-<td>
-  <%= comment.comment %>
-</td>
-<td>
-  <% if current_user == comment.user %>
-  <%= link_to 'Destroy', book_book_comment_path(comment.book, comment), method: :delete,  class: "btn btn-sm btn-danger" %>
+<table>
+  <tbody>
+  <% book.book_comments.each do |comment| %>
+    <tr>
+      <td>
+      <%= attachment_image_tag(comment.user.profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
+      <%= comment.user.name %>
+      </td>
+      <td>
+      <%= comment.comment %>
+      </td>
+      <td>
+      <% if current_user == comment.user %>
+      <%= link_to 'Destroy', book_book_comment_path(comment.book, comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+      <% end %>
+      </td>
+    </tr>
   <% end %>
-</td>
+  </tbody>
+</table>
